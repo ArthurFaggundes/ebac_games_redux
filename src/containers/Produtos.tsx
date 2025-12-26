@@ -5,7 +5,7 @@ import { useGetJogosQuery } from '../services/api'
 import * as S from './styles'
 
 const Produtos = () => {
-  const { data: jogos, isLoading } = useGetJogosQuery()
+  const { data: jogos, isLoading } = useGetJogosQuery() // isLoading indica se está carregando
 
   if (isLoading) {
     return <h2>Carregando...</h2>
