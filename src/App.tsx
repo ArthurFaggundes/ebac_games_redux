@@ -3,6 +3,9 @@ import Header from './components/Header'
 import Produtos from './containers/Produtos'
 
 import { GlobalStyle } from './styles'
+import { Provider } from 'react-redux'
+
+import { store } from './store'
 
 export type Game = {
   id: number
@@ -15,31 +18,34 @@ export type Game = {
 }
 
 function App() {
-  const [games, setGames] = useState<Game[]>([])
-  const [carrinho, setCarrinho] = useState<Game[]>([])
+  // const [games, setGames] = useState<Game[]>([])
 
-  useEffect(() => {
-    fetch('http://localhost:4000/produtos')
-      .then((res) => res.json())
-      .then((res) => setGames(res))
-  }, [])
+  // useEffect(() => {
+  //   fetch('/produtos') // fetch por padrão faz um GET
+  //     .then((res) => res.json())
+  //     .then((res) => setGames(res))
+  // }, [])
 
-  function adicionarAoCarrinho(jogo: Game) {
-    if (carrinho.find((game) => game.id === jogo.id)) {
-      alert('Item já adicionado')
-    } else {
-      setCarrinho([...carrinho, jogo])
-    }
+  // function adicionarAoCarrinho(jogo: Game) {
+  //   if (carrinho.find((game) => game.id === jogo.id)) {
+  //     alert('Item já adicionado')
+  //   } else {
+  //     setCarrinho([...carrinho, jogo])
+  //   }
+  // }
+
+  function adicionarAoCarrinho() {
+    alert('Item adicionado ao carrinho')
   }
 
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
       <div className="container">
-        <Header itensNoCarrinho={carrinho} />
-        <Produtos jogos={games} adicionarAoCarrinho={adicionarAoCarrinho} />
+        <Header />
+        <Produtos />
       </div>
-    </>
+    </Provider>
   )
 }
 

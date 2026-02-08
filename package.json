@@ -11,7 +11,11 @@
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+<<<<<<< HEAD
     "jest": "^27.5.1",
+=======
+    "json-server": "^0.17.3",
+>>>>>>> e1ddb7a5f1f01b58ec39b06a807bd161af6af537
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
