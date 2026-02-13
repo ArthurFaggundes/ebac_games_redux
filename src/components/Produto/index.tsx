@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import { Game } from '../../App'
 import * as S from './styles'
 
-import { adicionarItem } from '../../store/reducers/carrinho'
+import { adicionar } from '../../store/reducers/carrinho'
 
 type Props = {
   game: Game
@@ -32,7 +32,7 @@ const Produto = ({ game }: Props) => {
         {game.precoAntigo && <small>{paraReal(game.precoAntigo)}</small>}
         <strong>{paraReal(game.preco)}</strong>
       </S.Prices>
-      <S.BtnComprar onClick={() => dispatch(adicionarItem(game))} type="button">
+      <S.BtnComprar onClick={() => dispatch(adicionar(game))} type="button">
         Adicionar ao carrinho
       </S.BtnComprar>
     </S.Produto>
